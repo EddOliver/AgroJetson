@@ -1,6 +1,8 @@
 # AgroJetson
 Sustainable sensing and automated irrigation platform with predictive analysis via the Nvidia Jetson Nano.
 
+<img src="https://i.ibb.co/PNjNNfP/Agro-Jetson-Mod.png" width="1000">
+
 # Creacion del modelo de deteccion de fruta o verdura.
 
 ## Prerequisitos:
