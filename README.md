@@ -7,9 +7,17 @@ Sustainable sensing and automated irrigation platform with predictive analysis v
 
 - Tener una cuenta de google drive.
 
+- Tener instalada la version de Opencv-Contrib
+
+        git clone https://github.com/JetsonHacksNano/buildOpenCV
+
+        cd buildOpenCV
+
+        ./buildOpenCV.sh |& tee openCV_build.log
+
 ## Proceso:
 
-Para poder realizar la detección en una imagen de una fruta o verdura, en este caso tomate, requería realizar un modelo de detección de objetos personalizado, ya que las redes entrenadas como yoloV3 ya vienen entrenadas con bastantes objetos, sin embargo en mi caso, no tiene tomates maduros e inmaduros, por eso me di a la tarea de realizar el entrenamiento de una red neuronal propia, sin embargo ni la jetson ni mi laptop (laptop gaming) son capaces de realizar este proceso, por eso tuve que realizar el entrenamiento en una jupuyter notebook en google colab.
+Para poder realizar la detección en una imagen de una fruta o verdura, en este caso tomate, requería realizar un modelo de detección de objetos personalizado, ya que las redes entrenadas como yoloV3 ya vienen entrenadas con bastantes objetos, sin embargo en mi caso, no tiene tomates maduros e inmaduros, por eso me di a la tarea de realizar el entrenamiento de una red neuronal propia, sin embargo ni la jetson ni mi laptop (laptop gaming) son capaces de realizar este proceso, por eso tuve que realizar el entrenamiento en una jupyter notebook en Google Colab.
 
 ## Preparacion del dataset.
 
