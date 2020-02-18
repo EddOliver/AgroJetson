@@ -1,1 +1,1 @@
-Immature,Mature
+Ripe,Mature

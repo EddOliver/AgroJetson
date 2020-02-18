@@ -21,6 +21,8 @@ https://github.com/xiaqunfeng/BBox-Label-Tool
 
 Una en cada linea:
 <img src="https://i.ibb.co/z48YcmM/image.png" width="400">
+Escribimos el numero de clases
+<img src="https://i.ibb.co/nRJc5QM/image.png" width="400">
 Separado por comas:
 <img src="https://i.ibb.co/mGy0pgj/image.png" width="400">
 
@@ -63,7 +65,11 @@ Tenemos que subir el archivo dentro de la carpeta "Jupyter Yolo Colab" a nuestra
 
 <img src="https://i.ibb.co/g74jdWv/image.png" width="1000">
 
-Una vez terminada la seccion de entrenamiento tendremos nuestro modelo dentro de 
+Una vez terminada la seccion de entrenamiento tendremos nuestro modelo terminado y su archivo cfg dentro de la carpeta de drive "ml".
+
+<img src="https://i.ibb.co/g74jdWv/image.png" width="1000">
+
+
 
 
 
