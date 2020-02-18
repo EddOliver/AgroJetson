@@ -27,6 +27,16 @@ En este caso he modificado una herramienta para realizar manualmente las labels,
 
 https://github.com/xiaqunfeng/BBox-Label-Tool
 
+Para buscar imagenes para DL recomiendo esta pagina de google que tiene una gran base de datos de imaganes de todo tipo.
+
+https://storage.googleapis.com/openimages/web/index.html
+
+Con esta herramienta puedes bajar y filtrar imagenes de esta base de datos.
+
+https://www.learnopencv.com/fast-image-downloader-for-open-images-v4/
+
+# Intrucciones
+
 - Primero escribiremos nuestras labels en los siguientes archivos:
 
 Una en cada linea:
