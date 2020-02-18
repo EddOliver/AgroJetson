@@ -78,7 +78,7 @@ Una vez terminada la seccion de entrenamiento tendremos nuestro modelo terminado
 
 <img src="https://i.ibb.co/yWPHznB/image.png" width="1000">
 
-Descarga todos los archivos mostrados en la imagen y pegalos en la carpeta donde guardes el archivo Yolo with "OpenCV.iptnb"
+Descarga todos los archivos mostrados en la imagen y pegalos en la carpeta donde guardes el archivo Yolo with "OpenCV.ipynb"
 
 <img src="https://i.ibb.co/YWxmF5z/image.png" width="1000">
 
