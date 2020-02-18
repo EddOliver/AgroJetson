@@ -100,7 +100,7 @@ Descarga todos los archivos mostrados en la imagen y pegalos en la carpeta "Open
 
 Los archivos ya estan configurados de la siguiente forma en el archivo, pero tu puedes configurarlos como quieras.
 
-<img src="https://i.ibb.co/Bz34985/image.png" width="1000">
+<img src="https://i.ibb.co/bdGk0wh/image.png" width="1000">
 
 
 
