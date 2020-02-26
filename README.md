@@ -14,6 +14,8 @@ https://drive.google.com/drive/folders/1D0L8of2KWXOZfIo8sGg6XAk8ScAb6cEy?usp=sha
 Introduction
 In recent years Urban agriculture has made its mark in popular culture as an alternative to industrial farming. It offers several benefits and also helps to solve some of the most nefarious problems that we will have going forward regarding food supply, the growing population and the new trends favoring organic, naturally grown food. Despite all that it has been faced with a plethora of problems including its access to water, pollution concerns, and high maintenance costs. In addition to those most farming methods are very empirical in nature and it has been just a few years since the Internet of Things and other Industry 4.0 technologies have reached Agriculture. And among most of those, its degree of adoption is quite lackluster. Urban agriculture needs a cheap and readily available solution, for it to be sustainable.
 
+<img src="https://hackster.imgix.net/uploads/attachments/1073804/image_loVae4MbDt.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Problem
 Now I am going to go a little bit local as I am from Mexico, but the problem is very similar to the US, and more so in the southern states.
 
