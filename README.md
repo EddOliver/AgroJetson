@@ -3,7 +3,6 @@ Sustainable sensing and automated irrigation platform with predictive analysis v
 
 <img src="https://i.ibb.co/PNjNNfP/Agro-Jetson-Mod.png" width="1000">
 
-Story
 AgroJetson: Urban Agriculture AIoT solution.
 Sustainable sensing and automated irrigation platform with predictive analysis via the Nvidia Jetson Nano.
 
@@ -11,27 +10,37 @@ If you are in a hurry check out the video summary!:
 
 https://drive.google.com/drive/folders/1D0L8of2KWXOZfIo8sGg6XAk8ScAb6cEy?usp=sharing
 
-Introduction
+## Introduction
 In recent years Urban agriculture has made its mark in popular culture as an alternative to industrial farming. It offers several benefits and also helps to solve some of the most nefarious problems that we will have going forward regarding food supply, the growing population and the new trends favoring organic, naturally grown food. Despite all that it has been faced with a plethora of problems including its access to water, pollution concerns, and high maintenance costs. In addition to those most farming methods are very empirical in nature and it has been just a few years since the Internet of Things and other Industry 4.0 technologies have reached Agriculture. And among most of those, its degree of adoption is quite lackluster. Urban agriculture needs a cheap and readily available solution, for it to be sustainable.
 
 <img src="https://hackster.imgix.net/uploads/attachments/1073804/image_loVae4MbDt.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
-Problem
+<img src="https://hackster.imgix.net/uploads/attachments/1073807/image_XDvBw0P7v8.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+## Problem
 Now I am going to go a little bit local as I am from Mexico, but the problem is very similar to the US, and more so in the southern states.
 
 IF we want to have the most impact with a project regarding sustainability, namely Water sustainability we have to focus on the industry that requires more of it, which is Agriculture.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1073982/image_CPLlNkieDp.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 And regarding that the main problem in agriculture is actually Water. Most countries have their periods of drought, but as years become even hotter because of climate change, drought greatly affects several parts.
 
 This next picture represents the areas in Mexico with more drought, Yellow means bad and red means catastrophe.
 
+<img src="https://hackster.imgix.net/uploads/attachments/1073983/image_2pSfhBSvH5.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Also we don't really have to add that most of the fields and people who work them in Mexico are in a big technological and educative lag, so that adds to the problem because those are the people which climate change will harm the most.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1073988/image_Z9T4deZpYs.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 So we get into a $22 Billion USD problem adding all the parameters. Industry 4.0 tools and automation are severely needed to attack this.
 
 That is why Urban Agriculture is important in a sense, and I am trying to do my part, but I have a very particular problem that I cannot solve without Computer Vision.
 
 This is a photo of one of the Tomato fruits I have in my backyard which I cannot continuously check. Sometimes I am away or very busy, and I tend to neglect its care. Another thing is regarding collecting fruit at the proper moments because they may become uneatable at some point. The problem regarding water can be taken care of if I automate irrigation, but fruit ripeness and knowing when to pick them up will need a little bit more of technology to automate.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1074262/20200217_174632_VKW5s9T21g.jpg?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Solution
 To solve this problem we will make use of the power of the Internet of Things by creating three things. But we will go one step beyond, by integrating the JEtson Nano we will implement computer vision to solve that problem of mine regarding fruit and evolve the producto to an Artificial Intelligente enabled IoT solution. Hence AIoT!
@@ -41,6 +50,8 @@ Our solution to the problem will be to create a sustainable platform of sensing 
 There are several solutions of this kind in the market, but they are mainly focused in large scale agriculture, such as: https://www.the-iot-marketplace.com/libelium-sensorinsight-urban-agriculture-kit-4g For the Urban agriculture part, there are also a couple of incumbent, but at a much higher price, more dedicated to vertical farming. See: https://www.digiteum.com/iot-agriculture
 
 What will make this solution remarkable is the price first, those solutions are much higher in price to what will be developed here and the remarkable part is the usage of computer vision which no one does at this point.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1073953/image_sTFEtey2DY.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 How does it work?
 I'll try to summarize in two sections, one dedicated to the IoT component and the other one to the CV one. The IoT will be sensor based and the CV will be very GPU-hardware based.
