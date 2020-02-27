@@ -243,7 +243,7 @@ Now its time to upload the Argon code into your dev board! (If you have already 
 
 At this point we have the two "Things" of our AIoT solution that sense and actuate, fully functional and operational. (hehe)
 
-Lets test it:
+### Lets test it:
 
 Video: Click on the image
 [![Test](https://hackster.imgix.net/uploads/attachments/1073901/20191105_125442_8NLyQYyeJf.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max)](https://www.youtube.com/watch?v=Cq2cnmvLJOY&feature=emb_title)
@@ -251,7 +251,7 @@ Video: Click on the image
 
 Now we are in need of the brain and a little AI for the third "Thing". Which leads us to:
 
-5. Jetson Nano setup
+## 5. Jetson Nano setup
 Now to get the Nano running, there are already several guides online that do a better job of explaining how to set it up than I could do at this moment so I will link you to them. This guide is already quite long as it is:
 
 https://developer.nvidia.com/embedded/jetson-nano-developer-kit
@@ -283,7 +283,7 @@ To install Paho:
 
 https://pypi.org/project/paho-mqtt/
 
-6. Fruit detection Model creation
+## 6. Fruit detection Model creation
 Prerequisites:
 
 You need a google drive account.
@@ -292,9 +292,11 @@ Have OpenCV-contrib installed (amazing version of OpenCV with DNN capabilities)
 
 git clone https://github.com/JetsonHacksNano/buildOpenCV
 
-  cd buildOpenCV
+ ``` cd buildOpenCV
 
   ./buildOpenCV.sh |& tee openCV_build.log
+  ```
+  
 Process:
 To be able to detect an image of a fruit or vegetable, in this case tomato, it was necessary to make a custom object detection model since networks trained like yoloV3 are already trained with enough objects. However in my case, not one has ripe and immature tomatoes, that's why I gave myself the task of training my own neural network.
 
@@ -318,51 +320,80 @@ https://www.learnopencv.com/fast-image-downloader-for-open-images-v4/
 
 Or use your own but they have to be like these ones:
 
+<img src="https://hackster.imgix.net/uploads/attachments/1074413/whatsapp_image_2020-02-18_at_01_43_20_8vJROVayGx.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Instructions:
 
 First we will write our labels in the following files:
 
 One in each line:
 
-
-
+<img src="https://hackster.imgix.net/uploads/attachments/1074432/image_MYiWxGNt3i.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 
 We then write the number of classes:
 
+<img src="https://hackster.imgix.net/uploads/attachments/1074169/68747470733a2f2f692e6962622e636f2f6e524a6335514d2f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Separated by commas:
 
-
+<img src="https://hackster.imgix.net/uploads/attachments/1074433/image_lWgtUjqhZr.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 We open the toll via: python main.py
+
+<img src="https://hackster.imgix.net/uploads/attachments/1074177/68747470733a2f2f692e6962622e636f2f39563538484b632f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 In the "Image input folder" and "Label output folder" section we put the folder where the images go and select "Load Dir".
 
 Select the Label that we are going to put and press "ConfirmClass"
 
+<img src="https://hackster.imgix.net/uploads/attachments/1074226/68747470733a2f2f692e6962622e636f2f5a5857395978422f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Now we go select the objects that will have that category with the cursor.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1074227/68747470733a2f2f692e6962622e636f2f747a396d4862632f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 By pressing Next at the bottom the labels will be saved next to the file in this way.
 
+<img src"https://hackster.imgix.net/uploads/attachments/1074228/68747470733a2f2f692e6962622e636f2f707a47436d7a342f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Since all our images have their corresponding file label, we have to run the file "createtest.py" to create the training file, this is a list with all the files we have in the img folder.
 
+```python
 python createtest.py
+```
+
 Once all this is ready, we have to compress the file as a zip and in our google drive paste it into a folder called "ml" in this way.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1074229/68747470733a2f2f692e6962622e636f2f3137534473746a2f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Now we can start the process.
 
 https://colab.research.google.com/
 
+<img src="https://hackster.imgix.net/uploads/attachments/1074230/68747470733a2f2f692e6962622e636f2f6a3534703134632f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Once all this is ready, we have to compress the file as a zip and in our google drive paste it into a folder called "ml" in this way.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1074231/68747470733a2f2f692e6962622e636f2f6737346a6457762f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Once the training section is finished we will have our finished model and its cfg file inside the "ml" drive folder.
 
+<img src="https://hackster.imgix.net/uploads/attachments/1074232/68747470733a2f2f692e6962622e636f2f795750487a6e422f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Download all the files shown in the image and paste them in the "OpenCV Yolo" folder where the file "Yolo with OpenCV.ipynb"
+
+<img src="https://hackster.imgix.net/uploads/attachments/1074233/68747470733a2f2f692e6962622e636f2f5957786d46357a2f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 The files are already configured as follows in the file, but you can configure them as you want.
 
+<img src="https://hackster.imgix.net/uploads/attachments/1074234/68747470733a2f2f692e6962622e636f2f6264476b3077682f696d6167652e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 With Enough training the model has to be able to reach this kind of results:
 
-7. Getting OpenCV to work with the Jetson Nano
+<img src="https://hackster.imgix.net/uploads/attachments/1074428/395851eb-be94-4ca3-a125-dccf71b4cf7b_J7vuhuylMd.jpg?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+## 7. Getting OpenCV to work with the Jetson Nano
 For this part we need two things, to run the trained model in the Jetson Nano using all its capabilities and to send the information back to our dashboard.
 
 For that we will run a Jupyter Notebook with the aforementioned libraries. The most important one for communication in turn is PahoMQTT.
@@ -377,16 +408,19 @@ MQTT communication:
 
 Following the example from the IoT configuration part just do the same in Node-RED. The video shows how:
 
+[![Node](https://hackster.imgix.net/uploads/attachments/1073901/20191105_125442_8NLyQYyeJf.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max)](https://www.youtube.com/watch?v=OwqBGq3hYbg&feature=emb_title)
 
 And now we have the three "Things" working in tandem in a single platform!
 
 IoT and CV through AI creating our AIoT solution.
 
-8. Testing the Prototype:
+## 8. Testing the Prototype:
 Last video, here is how I installed the prototype in my Grove:
 
+[![Grove](https://hackster.imgix.net/uploads/attachments/1073901/20191105_125442_8NLyQYyeJf.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max)](https://www.youtube.com/watch?v=PfElgIOUpks&feature=emb_title)
 
-9. Commentary and Future Rollout.
+
+## 9. Commentary and Future Rollout.
 Let's take a look at some facts:
 
 • The population in Mexico (The author's country) and in the world will grow.
@@ -401,7 +435,7 @@ Sustainable disruption is needed because current methods are insufficient for th
 
 The current project offers an initial solution to these problems by starting with one of my own, but it is not difficult to see how one of these can expand. For now I think the implementation of AI and CV to solve this first problem of ripeness then can be later expanded to attack plagues, deliver pesticides correctly (hopefully organic ones) and many more applications. Companies like John Deere are already doing that, but at a much higher cost. This offers a cheap and affordable solution that can serve the local, home or urban farmer as it can automate several of their processes and most important of all provide valuable information about their crops that they can use to make good decisions.
 
-10. References.
+## 10. References.
 https://www.quantitative-plant.org/model/Tomato
 
 https://info.nvidia.com/deploy-ai-with-aws-ml-iot-services-on-nvidia-jetson-nano.html?ondemandrgt=yes
