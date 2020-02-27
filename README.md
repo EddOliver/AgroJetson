@@ -42,7 +42,7 @@ This is a photo of one of the Tomato fruits I have in my backyard which I cannot
 
 <img src="https://hackster.imgix.net/uploads/attachments/1074262/20200217_174632_VKW5s9T21g.jpg?auto=compress%2Cformat&w=740&h=555&fit=max">
 
-Solution
+## Solution
 To solve this problem we will make use of the power of the Internet of Things by creating three things. But we will go one step beyond, by integrating the JEtson Nano we will implement computer vision to solve that problem of mine regarding fruit and evolve the producto to an Artificial Intelligente enabled IoT solution. Hence AIoT!
 
 Our solution to the problem will be to create a sustainable platform of sensing and irrigation automation with predictive analysis via the Jetson instead of relying entirely on cloud. With one objective in mind: SAVE WATER. Apart from that, in my personal experience developing solutions for urban and large scale agriculture I have seen that the sensors alone are not sufficient to keep an eye on the plants. For this I'll develop a CV module using the GPU on the Jetson, that can be a direct conduit to the user and will be able to adjust certain tresholds of the automation of the system only by doing Image analysis. That on the edge of course.
@@ -53,8 +53,10 @@ What will make this solution remarkable is the price first, those solutions are 
 
 <img src="https://hackster.imgix.net/uploads/attachments/1073953/image_sTFEtey2DY.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
-How does it work?
+## How does it work?
 I'll try to summarize in two sections, one dedicated to the IoT component and the other one to the CV one. The IoT will be sensor based and the CV will be very GPU-hardware based.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1073948/image_GaxqKxjXlI.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 A): IoT 1.- Using temperature with humidity, soil moisture and soil temperature sensors, we will obtain sensor data every 6 min. Wifi has been chosen this time because its characteristics of long range and low power. For that in turn we will use a Particle Argon board. Each batch of sensing is done at this frequency to send 120 packets per day and to keep the Cellular prices low. For this system it was decided to usethat board to obtain the data from the sensors (using the vast array of libraries from Arduino and particle) and send them directly to a cloud service via MQTT (Namely Bluemix). Then using the Openweathermap API and Node-RED we will create a Dashboard and notification capabilities.
 
@@ -70,11 +72,11 @@ It is a very remarkable project in the fact that it is my most viewed project an
 
 Now we will make it Edge-based and much bigger. One huge emphasis of these two projects is for them to also be used in Urban Agriculture and WiFi is the best choice for that one as we live in one of the biggest cities in the world (Mexico) and the reliability of Sigfox or LoRA drops when you don't have line of sight.
 
-Usage of AI
+## Usage of AI
 For the IoT sensor analysis I'll use a simple linear regression model to come up with the thresholds needed. But, next is where the fun begins. Using a Yolo model I'll train a model to come up with certain plant characteristics such as coloration, leaf bending and so forth to decide on thresholds. Then I'll feed OpenCV with those models, naturally all this will run in the Jetson Nano using also its CUDA submodule for faster image analysis than any other board of its denomination can achieve.
 
-Extensive Project Tutorial: How to get started.
-1. Assemble the circuits
+## Extensive Project Tutorial: How to get started.
+## 1. Assemble the circuits
 Sensor Module:
 
 To complete this circuit, we used the Particle Argon dev board to send information to the cloud via WiFi. This uses the extensive libraries of the Arduino and Particle Ecosystems so the proyect may be expanded further without limits.
@@ -86,6 +88,10 @@ Particle Grove adapter Kit for the argon with sensors: https://www.seeedstudio.c
 Grove Moisture Sensor: http://wiki.seeedstudio.com/Grove-Moisture_Sensor/
 DHT11 sensor for grove
 Water temperaure sensor.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1073869/image_xaPmlDVjHE.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+<img src="https://hackster.imgix.net/uploads/attachments/1073872/image_NtaOzLHMpO.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Valve Module:
 
 Once the main circuit is completed, make the automated irrigation valve.
@@ -99,20 +105,31 @@ Solenoid Valve Nc 1/2.
 Diode 1N4007.
 1 Resistances of 2.2kohm.
 Cable, Solder, Jump wire or similar.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1071396/image_IiPcMhTrWS.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Real Implementation of both circuits:
+
+<img src="https://hackster.imgix.net/uploads/attachments/1073878/image_ikxAYev77u.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Refrain from uploading both the Argon code and the Photon code at this moment as we will need certain credentials.
 
-2. Create your Node-Red Dashboard
+<img src="https://hackster.imgix.net/uploads/attachments/1073883/finished2_thez4qfmaq_zTfQ5IM7BC.jpg?auto=compress%2Cformat&w=740&h=555&fit=max">
+
+## 2. Create your Node-Red Dashboard
 Follow this guide here:
 
 https://github.com/EddOliver/AgroJetson/tree/master/IBM%20cloud%20Agrojetson
 
 That is a guide for the absolute beginner, but taking a look at our flow we can see several instances of what we are doing.
 
+<img src="https://hackster.imgix.net/uploads/attachments/1071406/image_2QPNvZkFdV.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 By using the MQTT node, we will sync it to CloudMqtt.com which is a freemium message broker for the internet of things, our two "things" have to be setup to this broker, but that part has to be manually done.
 
 Go ahead and create a user on that platform or any other, you can also use AWS IoT, IBM or Azure according to taste. At this point you will have to input your credentials into the Argon code. Just replace the information of "YOURPORT", "YOUR_USER" and "YOUR_PASSWORD":
+
+<img src="https://hackster.imgix.net/uploads/attachments/1071433/image_Y6zo4U8Zil.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 In the case you are using another broker than m12.cloudmqtt.com, you might be needing more information and will need to change the broker.
 
@@ -120,15 +137,19 @@ Now we will go ahead and explain the configuration of the nodes which is very ea
 
 By taking both the "start" and "end" MQTT nodes we will form a messaging "bridge" so the Dashboard can "hear" the messages on Cloudmqtt. Grab the end node, go to server and then click on the edit icon to configure this part of the node.
 
+<img src="https://hackster.imgix.net/uploads/attachments/1071410/image_E0BX4VAEju.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 Now input your credentials from the MQTT broker of your choice, here is done with Cloudmqtt.
 
 Then grab the "start" node and set it up like so:
+
+<img src="https://hackster.imgix.net/uploads/attachments/1071413/image_IakmiiEKEB.png?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Notice the Topic, it is set up according to the topic of the sensor you will be using in this case the soil temperature sensor and is in accordance to the code on the Argon.
 
 You'll have to do this three times (or whichever you need) if you are mannually creating the dashboard or just grab the code at the end and ONLY input into it your credentials.
 
-3. Irrigation system via Openweathermap Forecast and Particle Photon.
+## 3. Irrigation system via Openweathermap Forecast and Particle Photon.
 We have to explain first the why's before the know how's.
 
 The use of tracking the forecast of the weather is the main purpose of the project itself, that is to optimize water usage.
@@ -145,15 +166,22 @@ Without further ado:
 
 2.- After that then simply go to Sign In and click on API Keys, then copy the API KEY.
 
+<img src="https://hackster.imgix.net/uploads/attachments/1071397/68747470733a2f2f696d6167652e6962622e636f2f6e62564a4f6f2f363837343734373037333361326632663639366436313637363532653639__40f862385d435f610f0adf674e6c6675.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 3.- Go then to your Node-RED flow. Remember the openweathermap node? Drag it to the Node-RED dashboard and configure it like so:
 
+<img src="https://hackster.imgix.net/uploads/attachments/1071398/68747470733a2f2f696d6167652e6962622e636f2f6a644773696f2f363837343734373037333361326632663639366436313637363532653639__37c8ccdc537280fccc4d367ee8bb8b7d.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 4.- Remember to paste an "Inject" node before, a "function" node after and also a "debug" node if you wish to check what has been transfered.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1071399/68747470733a2f2f696d6167652e6962622e636f2f64396e4d62382f363837343734373037333361326632663639366436313637363532653639__1fb9f9861679fc6325ce5d047cf2f59d.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Double click the function node and paste the following code:
 
 msg.payload= msg.payload[0].weather[0].main
 msg.count = msg.payload
 return msg;
+
 What this does, is to seek the weather condition that we desire which is "Rain" and it puts it into the payload of the flow.
 
 You can also grab a Text Dashboard node and connect it to this flow to get this info to the dashboard.
@@ -166,9 +194,13 @@ Flash it and go back to Node-RED. If you need aditional help with the Photon go 
 
 7.- Now in Node-RED make a flow like so:
 
+<img src="https://hackster.imgix.net/uploads/attachments/1071400/68747470733a2f2f696d6167652e6962622e636f2f6e38385347382f363837343734373037333361326632663639366436313637363532653639__60258ff4758370e3496fbe062deb89d0.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 The Particle node is indeed the function node.
 
 8.- Double click on the Particle node and click on the pencil on "Add new particle cloud". Then fill it like so:
+
+<img src"https://hackster.imgix.net/uploads/attachments/1071401/68747470733a2f2f696d6167652e6962622e636f2f6b79576762382f363837343734373037333361326632663639366436313637363532653639__35cb4aaec143b952b24867b813d21e92.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Your access token is in your particle IDE, Devices section and clicking on the current device you are using. Update and in the next screen fill it with your device name that you can get on the Particle IDE and also on "CLoud Function" input "led".
 
@@ -184,14 +216,18 @@ Finally, you have reached the end of this part of the tutorial so you have an id
 
 If you still want to have a complete solution in the "code section" there is the Node Red flow used in the project, which you should load into the Jetson Nano or any other computer (hint: that includes cloud services).
 
-4. Going Green: Solar Power
+## 4. Going Green: Solar Power
 This device has to have a solar panel to reduce the cost of infrastructure.
 
 We reccomend that you use at least a 2W Solar panel in tandem with a LiPo Battery like in the following circuit:
 
+<img src="https://hackster.imgix.net/uploads/attachments/1071402/68747470733a2f2f696d6167652e6962622e636f2f6870436e47382f436972637569746f5f4167726f2e706e67.png?auto=compress%2Cformat&w=740&h=555&fit=max">
+
 The power segment of the circuit is intended to power the circuit via a Solar Power during the day and then charge the LiPo battery so it can continue working at night.
 
 For this purpose you can see the Regulator in the image that is a connection module that regulates the LiPo battery charge and the Solar Panel feeding energy to the system.
+
+<img src="https://hackster.imgix.net/uploads/attachments/1073901/20191105_125442_8NLyQYyeJf.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max">
 
 Here are some reccomended links to these components:
 
@@ -208,6 +244,9 @@ Now its time to upload the Argon code into your dev board! (If you have already 
 At this point we have the two "Things" of our AIoT solution that sense and actuate, fully functional and operational. (hehe)
 
 Lets test it:
+
+Video: Click on the image
+[![Test](https://hackster.imgix.net/uploads/attachments/1073901/20191105_125442_8NLyQYyeJf.jpeg?auto=compress%2Cformat&w=740&h=555&fit=max)](https://www.youtube.com/watch?v=Cq2cnmvLJOY&feature=emb_title)
 
 
 Now we are in need of the brain and a little AI for the third "Thing". Which leads us to:
